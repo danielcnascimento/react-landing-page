@@ -12,6 +12,7 @@ const useStyle = makeStyles(({breakpoints})=>({
         alignItems:"center",
         [breakpoints.down('sm')]:{
             flexDirection:"column",
+            height: "180vh",
         }
     }
 }))

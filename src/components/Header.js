@@ -13,7 +13,7 @@ import { green } from "@material-ui/core/colors";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import {Link as Scroll} from 'react-scroll';
 
-const useStyle = makeStyles({
+const useStyle = makeStyles(({breakpoints}) => ({
   root: {
     display: "flex",
     justifyContent: "center",
@@ -47,19 +47,22 @@ const useStyle = makeStyles({
     fontSize: "2.5rem",
     textAlign: "center",
     fontFamily: "Nunito",
+    [breakpoints.down('xs', 'sm')] : {
+      fontSize: '1.5rem',
+    },
   },
   expandIcon: {
     color: green[600],
     fontSize: "4rem",
   },
-});
+}));
 
 const Header = () => {
   let classes = useStyle();
   const [checked, setChecked] = React.useState(false);
   useEffect(() => {
     setChecked(true);
-  });
+  }, []);
 
   return (
     <div className={classes.root} id="header" >

@@ -7,10 +7,13 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { Collapse, Button, CardActions } from '@material-ui/core';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(({ breakpoints }) => ({
   root: {
     maxWidth: 560,
     background: "rgba(0,0,0,0.5)",
+    [breakpoints.down('sm')] : {
+      maxWidth: 500,
+    }
   },
   media: {
     height: 350,
@@ -23,8 +26,9 @@ const useStyles = makeStyles({
   description: {
     fontFamily: "Nunito",
     color: "#cacaca",
-  }
-});
+  },
+}));
+  
 
 export default function VisitCard({place, checked}) {
   const classes = useStyles();
